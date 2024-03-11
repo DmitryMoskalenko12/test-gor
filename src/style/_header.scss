@@ -1,0 +1,220 @@
+@use './variables';
+@use './mixins';
+
+.menu {
+    min-height: 60px;
+    padding: 16px 15px;
+    background: #FFFFFF;
+
+    &__wrapper {
+        @include mixins.flex(flex, space-between, center);
+    }
+
+    &__img {
+        width: 149px;
+        height: 27px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__nav {
+        @include mixins.flex(flex, center, center);
+        flex-direction: column;
+        position: fixed;
+        left: -50%;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color: black;
+        transition: variables.$transition;
+        z-index: 5;
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin-top: 20px;
+          @include mixins.flex(flex, center, center);
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        &_active {
+            @include mixins.flex(flex, center, center);
+            flex-direction: column;
+            position: fixed;
+            left: 0%;
+            top: 0px;
+            width: 50%;
+            height: 100%;
+            background-color: black;
+            transition: variables.$transition;
+            ul {
+              z-index: 80;
+            }
+        }
+    }
+
+    &__link {
+        color: variables.$text-color;
+        font-size: variables.$font-size15;
+        font-weight: variables.$font-weight400;
+        line-height: 24px;
+        letter-spacing: -2%;
+        text-decoration: none;
+    }
+    
+    &__guide {
+        display: block;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        @include mixins.flex(flex, center, center);
+        border-radius: 4px;
+        background: variables.$guide-back;
+        color: variables.$text-color;
+        font-size: variables.$font-size14;
+        font-weight: variables.$font-weight600;
+        line-height: 130%;
+        letter-spacing: 0%;
+        text-decoration: none;
+    }
+     
+    &__hamburger {
+        position: absolute;
+        right: 16px;
+        display: block;
+        width: 27px;
+        height: 19px;
+        cursor: pointer;
+        div {
+          height: 2px;
+          background-color: variables.$menu-back;
+          margin-bottom: 4px;
+          transition: variables.$gamburgerTransition;
+        }
+
+        &_active {
+            width: 27px;
+            height: 19px;
+            right: 16px;
+            display: block;
+            position: absolute;
+            cursor: pointer;
+              div{
+                margin-bottom: -2px;
+                &:nth-child(1){
+                  transform: translateY(3px) rotate(-45deg);
+                }
+                &:nth-child(2) {
+                  display: none;
+                }
+                &:nth-child(3) {
+                  transform: translateY(3px) rotate(45deg);
+                }
+            }
+        }
+    }
+
+    &__close {
+        position: absolute;
+        color: variables.$close-color;
+        font-size: variables.$font-size30;
+        font-weight: variables.$font-weight600;
+        top: 5px;
+        right: 12px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+}
+
+@media (min-width: 767px) {
+  .menu {
+    &__wrapper {
+        position: relative;
+        @include mixins.flex(flex, space-between, center);
+      }
+    
+    &__logo {
+        width: 188px;
+        height: 38px;
+    }
+    
+    &__nav {
+        position: initial;
+        width: auto;
+        height: auto;
+        background-color: initial;
+        transition: none;
+        flex-direction: row;
+        justify-content: space-between;
+        ul {
+        @include mixins.flex(flex, space-around, center);
+        flex-direction: row;
+        gap: 0px;
+        margin: auto auto;
+        }
+    }
+    
+    &__hamburger {
+        display: none;
+    }
+    
+    &__guide {
+        font-size: variables.$font-size13;
+        padding: 11px 16px 11px 16px;
+        width: 115px;
+        height: 40px;
+    }
+
+    &__link {
+        font-size: variables.$font-size14;
+        color: black;
+        padding: 0 15px;
+    }
+
+    &__close {
+        display: none;
+    }
+  }
+}
+
+@media(min-width: 991px) {
+.menu {
+    &__guide {
+        width: 195px;
+        transition: variables.$transition;
+        &:hover {
+            transition: variables.$transition;
+            background: variables.$bg-main-button;
+        }
+        &:active {
+            background: variables.$bg-main-button-active;
+        }
+    }
+
+    &__link {
+        font-size: variables.$font-size15;
+    }
+
+   &__link {
+        transition: variables.$transition;
+    &:hover {
+        transition: variables.$transition;
+        color: variables.$hover;
+    }
+    &:active {
+        color: variables.$active;
+    }
+    }
+}
+}
+
+@media(min-width: 1440px) {
+    .menu {
+      padding: 16px 75px 16px 85px;
+    }
+}

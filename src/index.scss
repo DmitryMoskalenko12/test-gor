@@ -1,0 +1,94 @@
+@import './style/header';
+@import './style/live';
+@import './style/motivated';
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  button {
+    padding: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.5s all;
+    &_active {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: all;
+      transition: 0.5s all;
+      z-index: 4;
+      background-color: rgba(0, 0, 0, 0.40);
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 320px) {
+    .container {
+      width: auto;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1110px;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1320px;
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1600px;
+    }
+  }
